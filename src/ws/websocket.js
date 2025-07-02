@@ -4,8 +4,8 @@ import User from '../models/user.model.js'
 
 const clients = new Map()
 
-export const setupWebSocket = (server) => {
-  server.on('connection', (ws, req) => {
+export const setupWebSocket = (wws) => {
+  wws.on('connection', (ws, req) => {
     const url = new URL(req.url, `http://${req.headers.host}`)
     const token = url.searchParams.get('token')
 
