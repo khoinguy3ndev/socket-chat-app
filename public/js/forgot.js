@@ -17,7 +17,7 @@ document.getElementById('btn-send-link').addEventListener('click', async () => {
   const data = await res.json();
 
   if (!res.ok) {
-    msgEl.textContent = '❌ ' + (data.error || data.message);
+    msgEl.textContent = (data.error || data.message);
     return;
   }
 
@@ -46,7 +46,7 @@ document.getElementById('btn-reset').addEventListener('click', async () => {
   const data = await res.json();
 
   if (!res.ok) {
-    msgEl.textContent = '❌ ' + (data.error || data.message);
+    msgEl.textContent = (data.error || data.message);
     return;
   }
 

@@ -10,7 +10,6 @@ const msgBox = document.getElementById('messages')
 const receiverSelect = document.getElementById('receiver')
 const msgInput = document.getElementById('msg')
 
-// --- Fetch current user info ---
 const getMe = async () => {
   const res = await fetch('http://localhost:9000/user/me', {
     headers: { Authorization: `Bearer ${token}` },
@@ -19,7 +18,6 @@ const getMe = async () => {
   userId = data.metadata._id
 }
 
-// --- Load users into dropdown ---
 const loadUsers = async () => {
   const res = await fetch('http://localhost:9000/user/getAll', {
     headers: {
@@ -53,8 +51,6 @@ const loadUsers = async () => {
   }
 }
 
-
-// --- Load all messages ---
 const loadMessages = async (receiverId) => {
   msgBox.innerHTML = ''
 
@@ -78,8 +74,6 @@ const loadMessages = async (receiverId) => {
   })
 }
 
-
-// --- WebSocket ---
 const connectWebSocket = () => {
   ws = new WebSocket(`ws://localhost:9000?token=${token}`)
 
@@ -98,7 +92,6 @@ const connectWebSocket = () => {
   }
 }
 
-// --- Send message ---
 window.sendMsg = () => {
   const to = receiverSelect.value
   const content = msgInput.value
@@ -115,13 +108,11 @@ window.sendMsg = () => {
   msgInput.value = ''
 }
 
-// --- Logout
 window.logout = () => {
   localStorage.removeItem('token')
   window.location.href = '../html/index.html'
 }
 
-// --- On load ---
 (async () => {
   await getMe()
   await loadUsers()
