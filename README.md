@@ -202,10 +202,3 @@ npm run seed
 - CORS được cấu hình để chỉ cho phép các origin được chỉ định
 - WebSocket connection yêu cầu valid JWT token
 
-## 📄 License
-
-ISC
-
-## 👤 Tác giả
-
-- GitHub: [@khoinguyen2010hihihi](https://github.com/khoinguyen2010hihihi)
